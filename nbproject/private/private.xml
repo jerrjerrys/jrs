@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/application/jrs/app/Module/classes/FirstToDo.php</file>
+            <file>file:/D:/application/jrs/app/Module/filter/BeforeStart.php</file>
+            <file>file:/D:/application/jrs/resources/views/jrs/lte-admin-layout.blade.php</file>
+            <file>file:/D:/application/jrs/app/Http/routes.php</file>
+            <file>file:/D:/application/jrs/app/Module/classes/TableBuilder.php</file>
+            <file>file:/D:/application/jrs/app/Module/auth/model/Role.php</file>
+            <file>file:/D:/application/jrs/app/Module/auth/model/User.php</file>
+            <file>file:/D:/application/jrs/app/Module/classes/Action.php</file>
+            <file>file:/D:/application/jrs/app/Module/classes/SomeLib.php</file>
+            <file>file:/D:/application/jrs/app/Module/classes/config/Menu.php</file>
+            <file>file:/D:/application/jrs/app/Module/auth/model/Page.php</file>
+            <file>file:/D:/application/jrs/app/Module/classes/Render.php</file>
+            <file>file:/D:/application/jrs/app/Module/auth/MainController.php</file>
+        </group>
+    </open-files>
+</project-private>
