@@ -9,6 +9,9 @@ namespace App\Module\classes;
  */
 
 class SomeLib {
+    
+    protected $wraper = '';
+    protected $menu = '';
 
     public function arrayModified($the_array, $rules = []) {
         
@@ -129,6 +132,36 @@ class SomeLib {
         }
 
         return $list;
+    }        
+
+    public function createMenuWraper($param, $attribute = '') {
+
+        $compiled_attribute = $this->compileAttribute($attribute);
+
+        $this->wraper = '<ul ' . $compiled_attribute . ' >' . $param . '</ul>';
+
+        return $this->wraper;
+    }
+
+    public function createMenu($param, $attribute = '') {
+
+        $compiled_attribute = $this->compileAttribute($attribute);
+
+        $this->menu = '<li ' . $compiled_attribute . ' >' . $param . '</li>';
+
+        return $this->menu;
+    }
+
+    public function compileAttribute($attribute) {
+        $compiled_attribute = '';
+
+        if (!empty($attribute)) {
+            foreach ($attribute as $key => $val) {
+                $compiled_attribute .= ' ' . $key . ' = "' . $val . '"';
+            }
+        }
+
+        return $compiled_attribute;
     }
 
 }
