@@ -23,6 +23,7 @@ class Render {
     protected $form;
     protected $table;    
     protected $layout;
+    protected $form_layout = '';
     protected $lib;
 
     public function __construct($model, $layout = "jrs.layout") {
@@ -43,6 +44,9 @@ class Render {
                     'enctype' => "multipart/form-data",
                     'class' => ""
         ]);
+        
+        $this->form_layout = isset($rules['form-layout']) || !empty($rules['form-layout']) ? $rules['form-layout'] : 'jrs.form.lte-default-form-layout';
+        
         $this->lib->initiateForm($this->form, $this->model->attributes());
         $this->lib->clearOrModifiedForm($this->form, $rules);
 
@@ -161,57 +165,12 @@ class Render {
     }    
 
     public function compileWidget() {
-        $form = $this->form;
+        $form = $this->form;                
 
-        $table = $this->table;                
+        $table = $this->table;
+        
+        $form_layout = $this->form_layout;
 
-        return view($this->layout, compact(['form', 'table']));
-    }
-
-    /*
-     * OLD
-     */
-
-    public function tableWidget($collections = [], $rules = []) {
-        $head = [];
-        $fields = [];
-        $create = '';
-
-        if (!empty($collections)) {
-            foreach ($collections as $key => $value) {
-                if (array_key_exists('update', $rules)) {
-                    $url = (array_key_exists('url', $rules['update'])) ? $rules['update']['url'] : NULL;
-                    $pk = (array_key_exists('pk', $rules['update'])) ? $rules['update']['pk'] : NULL;
-                    $class = (array_key_exists('class', $rules['update'])) ? $rules['update']['class'] : NULL;
-                    array_set($collections, $key . ".update", "<a href='" . url($url . '/' . $value[$pk]) . "' class='" . $class . "'>Update</a>");
-                }
-
-                if (array_key_exists('delete', $rules)) {
-                    $url = (array_key_exists('url', $rules['delete'])) ? $rules['delete']['url'] : NULL;
-                    $pk = (array_key_exists('pk', $rules['delete'])) ? $rules['delete']['pk'] : NULL;
-                    $class = (array_key_exists('class', $rules['delete'])) ? $rules['delete']['class'] : NULL;
-                    array_set($collections, $key . ".delete", "<a href='" . url($url . '/' . $value[$pk]) . "' class='" . $class . "'>Delete</a>");
-                }
-            }
-
-            $fields = array_keys($collections[0]);
-            $head = $this->lib->beautyWord($fields);
-        }
-
-        if (array_key_exists('create', $rules)) {
-            $url = (array_key_exists('url', $rules['create'])) ? $rules['create']['url'] : NULL;
-            $pk = (array_key_exists('pk', $rules['create'])) ? $rules['create']['pk'] : NULL;
-            $class = (array_key_exists('class', $rules['create'])) ? $rules['create']['class'] : NULL;
-            $create = "<a href='" . url($url) . "' class='" . $class . "'>Create</a>";
-        }
-
-        $this->table = [
-            "create" => $create,
-            "head" => $head,
-            "body" => [$fields, $collections]
-        ];
-
-        return $this;
-    }
-
+        return view($this->layout, compact(['form', 'table','form_layout']));
+    }    
 }

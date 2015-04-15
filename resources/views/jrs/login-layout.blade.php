@@ -21,7 +21,7 @@
             <div class="login-box-body">
                 @include('jrs.notify.alert')                
                 @if(!empty($form))                
-                {!! form($form) !!}
+                    @include($form_layout,['form'=>$form])
                 @endif                 
             </div><!-- /.login-box-body -->
         </div><!-- /.login-box -->        

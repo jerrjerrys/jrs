@@ -61,7 +61,7 @@
                                     <h3 class="box-title">Form</h3>
                                 </div>
                                 <div class="box-body">
-                                    {!! form($form) !!}  
+                                    @include($form_layout,['form'=>$form])
                                 </div>
                             </div>                            
                         </div>

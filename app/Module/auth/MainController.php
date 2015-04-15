@@ -49,6 +49,7 @@ class MainController extends JrsController {
             'form-method' => 'POST',
             'form-url' => url('auth/login?app=jrs_auth_db'),
             'form-clear' => ['role_id', 'token', 'email', 'image'],
+            'form-layout' => 'jrs.form.lte-login-form-layout',
             'form-modify' => [
                 ['login', 'submit', ['attr' => ['class' => 'btn btn-info']]],
                 ['register', 'submit', ['attr' => [
