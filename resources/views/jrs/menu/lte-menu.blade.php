@@ -5,15 +5,15 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{!! asset(session('image')) !!}" class="img-circle" alt="User Image" />
+                <img src="{!! asset($profile_image) !!}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>{!! session('username') !!}</p>
+                <p>{!! $profile_name !!}</p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        <!-- search form -->
+        <!-- search form 
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
@@ -22,10 +22,9 @@
                 </span>
             </div>
         </form>
-        <!-- /.search form -->
+        /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+        <ul class="sidebar-menu">            
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>

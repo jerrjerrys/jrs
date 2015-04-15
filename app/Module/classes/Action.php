@@ -184,21 +184,13 @@ class Action {
             Session::flash('save-error', $error_msg);
 
             $this->auth = 1;
-        } else {
-
-            $user_data = Auth::user();
+        } else {            
 
             Session::put('db_connection', $db);
             
-            Session::put('login_token', $user_data->_token);
+            $user_data = Auth::user();
             
-            Session::put('join_at', $user_data->created_at->diffForHumans());
-
-            foreach ($user_data->toArray() as $key => $value) {
-                
-                Session::put($key, $value);
-            }
-
+            Session::put('user_id', $user_data->id);                        
             Session::flash('save-success', $success_msg);
 
             $this->auth = 2;

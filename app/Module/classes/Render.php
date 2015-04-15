@@ -21,8 +21,7 @@ class Render {
 
     protected $model;
     protected $form;
-    protected $table;
-    protected $menu;
+    protected $table;    
     protected $layout;
     protected $lib;
 
@@ -42,7 +41,7 @@ class Render {
                     'url' => $form_url,
                     'model' => $form_model,
                     'enctype' => "multipart/form-data",
-                    'class' => "form-horizontal"
+                    'class' => ""
         ]);
         $this->lib->initiateForm($this->form, $this->model->attributes());
         $this->lib->clearOrModifiedForm($this->form, $rules);
@@ -159,16 +158,12 @@ class Render {
         $this->table = (string) view('jrs.table.new-table', ['table' => $this->table]);
 
         return $this;
-    }
-
-    public function menuWidget() {
-        
-    }
+    }    
 
     public function compileWidget() {
         $form = $this->form;
 
-        $table = $this->table;
+        $table = $this->table;                
 
         return view($this->layout, compact(['form', 'table']));
     }

@@ -4,6 +4,7 @@ namespace App\Module\filter;
 
 use Closure;
 use Session;
+use Auth;
 use App\Module\auth\model\User;
 
 class TokenAuthenticate {
@@ -27,9 +28,8 @@ class TokenAuthenticate {
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next) {
-        $token = Session::get('login_token');        
-        if(empty($token)){
+    public function handle($request, Closure $next) {        
+        if (!Auth::check()) {
             Session::flash('error','You don\'t have a permission to access this action. Please contact your administrator for further information.');
             return redirect("auth/login");
         }else{

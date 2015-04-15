@@ -8,10 +8,7 @@ namespace App\Module\classes;
  * and open the template in the editor.
  */
 
-class SomeLib {
-    
-    protected $wraper = '';
-    protected $menu = '';
+class SomeLib {        
 
     public function arrayModified($the_array, $rules = []) {
         
@@ -132,25 +129,7 @@ class SomeLib {
         }
 
         return $list;
-    }        
-
-    public function createMenuWraper($param, $attribute = '') {
-
-        $compiled_attribute = $this->compileAttribute($attribute);
-
-        $this->wraper = '<ul ' . $compiled_attribute . ' >' . $param . '</ul>';
-
-        return $this->wraper;
-    }
-
-    public function createMenu($param, $attribute = '') {
-
-        $compiled_attribute = $this->compileAttribute($attribute);
-
-        $this->menu = '<li ' . $compiled_attribute . ' >' . $param . '</li>';
-
-        return $this->menu;
-    }
+    }            
 
     public function compileAttribute($attribute) {
         $compiled_attribute = '';

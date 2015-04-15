@@ -36,6 +36,7 @@ class BeforeStart {
         
         $this->ftd->setHeader();
         $this->ftd->setConnection();
+        $this->ftd->setViewComposer();
         
         return $next($request);
     }
