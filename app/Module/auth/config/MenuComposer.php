@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Module\classes\config;
+namespace App\Module\auth\config;
 
 use Illuminate\Contracts\View\View;
 

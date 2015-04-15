@@ -31,7 +31,7 @@ class FirstToDo {
     }
 
     public function setViewComposer() {
-        View::composer('*','App\Module\classes\config\ProfileComposer');
+        View::composer('jrs.*','App\Module\auth\config\ProfileComposer');
     }
 
 }
